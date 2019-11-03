@@ -1,3 +1,0 @@
-[submodule "dockprom"]
-	path = dockprom
-	url = git@github.com:stefanprodan/dockprom.git
