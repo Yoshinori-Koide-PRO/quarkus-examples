@@ -16,6 +16,6 @@ public class HelloResource {
     @Counted(name = "performedChecks", description = "How many it have been hellowed.")
     @Timed(name = "checksTimer", description = "A measure of how long it takes to perform the say hellow.", unit = MetricUnits.MILLISECONDS)
     public String hello() {
-        return "hello 1111\n";
+        return "hello\n";
     }
 }
