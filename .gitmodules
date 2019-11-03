@@ -1,0 +1,3 @@
+[submodule "dockprom"]
+	path = dockprom
+	url = git@github.com:Yoshinori-Koide-PRO/dockprom.git
