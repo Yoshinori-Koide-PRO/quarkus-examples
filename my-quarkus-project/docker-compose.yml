@@ -1,5 +1,16 @@
 version : "3"
 services:
+  quarkus:
+    build:
+      context: .
+    ports:
+      - 8082:8082
+    networks:
+      - default
+      - monitor-net
+    depends_on:
+      - jaeger
+      - db
   db:
     image: postgres
     ports:
@@ -25,3 +36,8 @@ services:
       - 16686:16686
       - 14268:14268
       - 9411:9411
+
+networks:
+  monitor-net:
+    external:
+      name: dockprom_monitor-net
