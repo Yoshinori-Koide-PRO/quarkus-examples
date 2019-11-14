@@ -3,15 +3,15 @@
 #
 # Before building the docker image run:
 #
-# mvn package -Pnative -Dnative-image.docker-build=true
+# mvn package -Pnative -Dquarkus.native.container-build=true
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/my-quarkus-project .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/thymeleaf-quarkus-project .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/my-quarkus-project
+# docker run -i --rm -p 8080:8080 quarkus/thymeleaf-quarkus-project
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal

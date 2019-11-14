@@ -1,5 +1,6 @@
 package org.acme.quarkus.sample;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -8,15 +9,24 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.eclipse.microprofile.metrics.MetricUnits;
-import org.eclipse.microprofile.metrics.annotation.Timed;
-import org.eclipse.microprofile.metrics.annotation.Counted;
-
 import org.acme.quarkus.sample.model.Person;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.jboss.resteasy.plugins.providers.html.Renderable;
 
+/**
+ * PersonResource
+ */
 @Path("/person")
-@Produces(MediaType.APPLICATION_JSON)
 public class PersonResource {
+
+    ThymeleafRenderer views;
+
+    @Inject
+    public PersonResource(ThymeleafRenderer views) {
+        this.views = views;
+    }
 
     @POST
     @Transactional
@@ -31,29 +41,12 @@ public class PersonResource {
     @GET
     @Path("/{id}")
     @Transactional
-    @Counted(name = "performed_get", description = "How many it have been called.")
-    @Timed(name = "checksTimer_get", description = "A measure of how long it takes to perform getting person.", unit = MetricUnits.MILLISECONDS)
-    public Person get(@PathParam("id") Long id) {
-        return Person.findById(id);
-    }
-
-    @GET
-    @Path("/{id}")
-    @Transactional
     @Produces(MediaType.TEXT_HTML)
     @Counted(name = "performed_html", description = "How many it have been called.")
     @Timed(name = "checksTimer_html", description = "A measure of how long it takes to perform getting person.", unit = MetricUnits.MILLISECONDS)
-    public Person getHTML(@PathParam("id") Long id) {
-        return Person.findById(id);
-    }
-
-    @GET
-    @Path("/{id}/pdf")
-    @Produces("application/pdf")
-    @Transactional
-    @Counted(name = "performed_pdf", description = "How many it have been called.")
-    @Timed(name = "checksTimer_pdf", description = "A measure of how long it takes to perform getting person.", unit = MetricUnits.MILLISECONDS)
-    public Person getByPDF(@PathParam("id") Long id) {
-        return Person.findById(id);
-    }
+    public Renderable getHTML(@PathParam("id") Long id) {
+        return views
+            .view("person.html")
+            .with("p", Person.findById(id));
+    }    
 }
