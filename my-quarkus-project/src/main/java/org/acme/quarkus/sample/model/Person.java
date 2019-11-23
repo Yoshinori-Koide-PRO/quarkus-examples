@@ -1,6 +1,9 @@
 package org.acme.quarkus.sample.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.json.bind.annotation.JsonbTransient;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,6 +21,11 @@ public class Person extends PanacheEntity {
   @JsonFormat(pattern = "yyyy-MM-dd")
   public LocalDate birth;
   public Status status;
+
+  @JsonbTransient
+  @ManyToMany
+  @JoinTable(name = "friends")
+  public List<Person> friends;
 
   public static Person findByName(String name) {
     return find("name", name).firstResult();
