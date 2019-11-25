@@ -1,0 +1,24 @@
+version: '3'
+
+networks:
+  web:
+    external:
+      name: team_traefik_consul_web
+
+services:
+  quarkus-backend:
+    container_name: quarkus-backend
+    image: maven:3.6-jdk-8
+    working_dir: /usr/src/mymaven
+    volumes:
+      - ./:/usr/src/mymaven
+    expose:
+      - 8082
+    command: mvn io.quarkus:quarkus-maven-plugin:1.0.0.CR2:dev
+    networks: 
+      - web
+    labels:
+      traefik.enable: true
+      traefik.host: quarkus-backend
+      traefik.http.routers.quarkus-backend.entrypoints: http
+      traefik.docker.network: team_traefik_consul_web

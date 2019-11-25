@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  web:
+    external:
+      name: team_traefik_consul_web
+
+services:
+  ng-quarkus:
+    container_name: ng-quarkus-front
+    build:
+      context: .
+    expose:
+      - 80
+    networks: 
+      - web
+    labels:
+      traefik.enable: true
+      traefik.host: ng-quarkus
+      traefik.http.routers.ng-quarkus.entrypoints: http
+      traefik.docker.network: team_traefik_consul_web

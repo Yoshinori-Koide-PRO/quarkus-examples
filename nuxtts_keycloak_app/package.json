@@ -1,0 +1,32 @@
+{
+  "name": "nuxtts_keycloak_app",
+  "version": "1.0.0",
+  "description": "My rad Nuxt.js project",
+  "author": "Yoshinori-Koide-PRO",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts build && nuxt-ts start",
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.2.4",
+    "ant-design-vue": "^1.1.10",
+    "nuxt": "^2.0.0",
+    "vue-keycloak-js": "^0.1.0",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.3.4",
+    "@nuxtjs/eslint-config-typescript": "^0.1.3",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "vue-jest": "^4.0.0-0"
+  }
+}

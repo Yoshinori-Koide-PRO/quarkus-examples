@@ -1,0 +1,11 @@
+<p>
+  main works!
+</p>
+<ul>
+  <li *ngFor="let f of fruits | async">
+    {{ f.name }} : {{ f.description }}
+  </li>
+</ul>
+<ul>
+  <li><button (click)="logOut()">Log Out</button></li>
+</ul>
