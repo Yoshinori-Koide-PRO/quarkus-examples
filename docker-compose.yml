@@ -1,0 +1,7 @@
+version : "3"
+services:
+  quarkus:
+    build:
+      context: .
+    ports:
+      - 8080:8080
