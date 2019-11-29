@@ -1,7 +1,8 @@
 version : "3"
 services:
-  quarkus:
+  quarkus: 
+    image: xxxxx.azurecr.io/quarkus-quickstart/getting-started
     build:
       context: .
     ports:
-      - 8080:8080
+      - 8080:80

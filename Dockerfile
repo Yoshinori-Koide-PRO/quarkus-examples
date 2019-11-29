@@ -16,5 +16,5 @@ WORKDIR /work/
 COPY --from=build /usr/src/app/target/*-runner /work/application
 COPY --from=build /tmp/ssl-libs/ /work/
 RUN chmod 775 /work
-EXPOSE 8080
-CMD ["./application", "-Dquarkus.http.host=0.0.0.0", "-Djava.library.path=/work/lib", "-Djavax.net.ssl.trustStore=/work/cacerts"]
+EXPOSE 80
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0", "-Djava.library.path=/work/lib", "-Djavax.net.ssl.trustStore=/work/cacerts", "-Dquarkus.http.port=80"]
