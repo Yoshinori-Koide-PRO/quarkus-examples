@@ -1,3 +1,6 @@
-# Hibernate 使ったプロジェクトはちゃんとNative化できるのか検証
+# Azure Functions にデプロイしてみる
 
-手順についての記事はこちら→ https://qiita.com/koinori/items/244f0ecb8fd7ecd4f34f
+mvn だけだとエラー？
+→ westus のロケールがダメっぽい？
+画面上から東日本作って、eastja にしてみた。
+→ 行けた。
