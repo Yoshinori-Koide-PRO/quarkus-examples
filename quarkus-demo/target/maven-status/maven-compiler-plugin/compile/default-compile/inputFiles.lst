@@ -1,0 +1,3 @@
+/workspaces/quarkus-examples/quarkus-demo/src/main/java/org/acme/GreetingResource.java
+/workspaces/quarkus-examples/quarkus-demo/src/main/java/org/acme/GreetingServlet.java
+/workspaces/quarkus-examples/quarkus-demo/src/main/java/org/acme/GreetingVertx.java

@@ -24,4 +24,10 @@ hs_err_pid*
 
 ?
 
+application.properties
+
+.devcontainer
+.settings
 .vscode
+
+auth.config.ts
