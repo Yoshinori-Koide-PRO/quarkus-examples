@@ -1,0 +1,41 @@
+<h1 *ngIf="!claims">
+  Hi!
+</h1>
+
+<h1 *ngIf="claims">
+  Hi, {{claims.given_name}}!
+</h1>
+
+<h2 *ngIf="claims">Your Claims:</h2>
+
+<pre *ngIf="claims">
+  {{claims | json}}
+  </pre>
+<br />
+
+<h2 *ngIf="accToken">Your AccessToken:</h2>
+
+<pre *ngIf="accToken">
+  {{accToken | json}}
+  </pre>
+<br />
+
+<h2 *ngIf="idToken">Your idToken:</h2>
+
+<pre *ngIf="idToken">
+  {{idToken | json}}
+  </pre>
+<br />
+
+<div *ngIf="!claims">
+  <button (click)="login()">Login</button>
+</div>
+
+<div *ngIf="claims || accToken || idToken || scopes">
+  <button (click)="logout()">Logout</button>
+  <button (click)="getMessage()">API Call</button>
+  <div *ngIf="message">
+    Response:
+    {{message | json}}
+  </div>
+</div>
