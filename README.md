@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Azure Functions にデプロイしてみる
 
 ## Angular でのOIDC に挑戦

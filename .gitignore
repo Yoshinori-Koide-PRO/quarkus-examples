@@ -31,3 +31,4 @@ application.properties
 .vscode
 
 auth.config.ts
+target
