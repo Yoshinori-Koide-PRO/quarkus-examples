@@ -11,17 +11,21 @@
   // You can edit these settings after create using File > Preferences > Settings > Remote.
   "settings": {
     "java.home": "/docker-java-home",
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "liveServer.settings.port": 9900
   },
   // Uncomment the next line if you want to publish any ports.
   "appPort": [
     8787,
-    8082
+    8082,
+    8083,
+    9900
   ],
   // Uncomment the next line to run commands after the container is created.
   // "postCreateCommand": "java -version",
   "extensions": [
     "vscjava.vscode-java-pack",
-    "redhat.vscode-xml"
+    "redhat.vscode-xml",
+    "ritwickdey.liveserver"
   ]
 }
