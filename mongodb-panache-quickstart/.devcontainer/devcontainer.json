@@ -1,6 +1,10 @@
 {
   "name": "Java Sample",
-  "dockerFile": "Dockerfile",
+  // "dockerFile": "Dockerfile",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "java",
+  "workspaceFolder": "/workspaces/mongodb-panache-quickstart",
+  "shutdownAction": "stopCompose",
   // Comment out the next line to run as root instead. Linux users, 
   // update Dockerfile with your user's UID/GID if not 1000.
   "runArgs": [
@@ -15,12 +19,12 @@
     "liveServer.settings.port": 9900
   },
   // Uncomment the next line if you want to publish any ports.
-  "appPort": [
-    8787,
-    8082,
-    8083,
-    9900
-  ],
+  // "appPort": [
+  //   8787,
+  //   8082,
+  //   8083,
+  //   9900
+  // ],
   // Uncomment the next line to run commands after the container is created.
   // "postCreateCommand": "java -version",
   "extensions": [

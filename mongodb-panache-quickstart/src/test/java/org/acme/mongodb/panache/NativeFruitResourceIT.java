@@ -1,7 +1,9 @@
 package org.acme.mongodb.panache;
 
-import io.quarkus.test.junit.NativeImageTest;
+import org.junit.jupiter.api.Disabled;
 
+import io.quarkus.test.junit.NativeImageTest;
+@Disabled
 @NativeImageTest
 public class NativeFruitResourceIT extends FruitResourceTest {
 
