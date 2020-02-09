@@ -10,8 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.mongodb.client.MongoClient;
-
 import org.acme.mongodb.panache.model.Person;
 import org.bson.types.ObjectId;
 
@@ -21,7 +19,6 @@ import io.quarkus.mongodb.panache.runtime.Repository;
 @Produces(MediaType.APPLICATION_JSON)
 @ApplicationScoped
 public class PersonResource {
-    @Inject MongoClient mongoClient;
     
     @POST
     public Person create(Person person) {
