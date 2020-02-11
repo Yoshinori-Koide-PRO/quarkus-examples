@@ -352,6 +352,10 @@ public class Repository<Entity extends PanacheMongoEntity> {
         return find(query, null, params);
     }
 
+    public PanacheQuery<Entity> aggs(String query) {
+        return find(Document.parse(query));
+    }
+
     public PanacheQuery<Entity> find(String query, Sort sort, Map<String, Object> params) {
         String bindQuery = bindQuery(entityClass, query, params);
         Document docQuery = Document.parse(bindQuery);

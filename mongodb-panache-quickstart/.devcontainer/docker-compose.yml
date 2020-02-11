@@ -10,6 +10,7 @@ services:
       args:
         - -u
         - vscode
+    user: "vscode:1000"
     ports:
     - 8787
     - 8082

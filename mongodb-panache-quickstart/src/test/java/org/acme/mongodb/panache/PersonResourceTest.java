@@ -24,4 +24,30 @@ public class PersonResourceTest {
             body("name", is("Alice"));
     }
 
+    @Test
+    public void testPersonEndpointFindByName() {
+        given().
+            queryParam("name", "Alice").
+        when().
+            get("/person").
+        then().
+            log().all().
+            statusCode(200).
+            body("name", is("Alice"));
+    }
+
+    @Test
+    public void testPersonEndpoint_FriendWithAlice() {
+        String alice = "{\"name\":\"Alice\",\"birth\":\"2010-16-11\",\"status\":\"Alive\"}";
+
+        given().
+            contentType("application/json").
+        when().
+            body(alice).
+            post("/person/friendWith/john").
+        then().
+            log().all().
+            statusCode(200).
+            body("name", is("john"));
+    }
 }
