@@ -56,6 +56,10 @@ public class Repository<Entity extends PanacheMongoEntity> {
         prefix + SEP + collectionSuffix : prefix;
     }
 
+    public static String escape(Object value) {
+        return CommonQueryBinder.escape(value);
+    }
+
     public void persist(Entity entity) {
         MongoCollection<Entity> collection = mongoCollection(entity);
         persist(collection, entity);
